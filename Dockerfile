@@ -1,4 +1,4 @@
-# Copyright 2017 Vladimir Roncevic <elektron.ronca@gmail.com>
+# Copyright 2020 Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,21 +33,21 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 RUN pip install --upgrade setuptools
 RUN pip3 install --upgrade setuptools
-RUN mkdir /gen_vhost/
-COPY gen_vhost /gen_vhost/
+RUN mkdir /gen_readme/
+COPY gen_readme /gen_readme/
 COPY setup.py /
 COPY README.md /
 COPY requirements.txt /
 RUN pip install -r requirements.txt
 RUN pip3 install -r requirements.txt
 RUN rm -f requirements.txt
-RUN find /gen_vhost/ -name "*.editorconfig" -type f -exec rm -Rf {} \;
+RUN find /gen_readme/ -name "*.editorconfig" -type f -exec rm -Rf {} \;
 RUN python setup.py install_lib
 RUN python setup.py install_egg_info
 RUN python setup.py install_data
 RUN python3 setup.py install_lib
 RUN python3 setup.py install_egg_info
 RUN python3 setup.py install_data
-RUN rm -rf /gen_vhost/
+RUN rm -rf /gen_readme/
 RUN rm -f setup.py
 RUN rm -f README.md
