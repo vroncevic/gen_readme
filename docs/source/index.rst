@@ -25,7 +25,7 @@ other information that should be provided before the modules are installed.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Contents
 
    self
    modules
@@ -45,7 +45,7 @@ Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/gen_readme/releases
 
-To install this set of modules type the following:
+To install this set of modules type the following
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ To install this set of modules type the following:
     python3 setup.py install_egg_info
     python3 setup.py install_data
 
-You can use Docker to create image/container, or You can use pip to install:
+You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
@@ -79,21 +79,22 @@ You can use Docker to create image/container, or You can use pip to install:
 Dependencies
 -------------
 
-**gen_readme** requires next modules and libraries:
+**gen_readme** requires next modules and libraries
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
 Tool structure
 ------------------
 
-**gen_readme** is based on OOP:
+**gen_readme** is based on OOP
 
-Code structure:
+Code structure
 
 .. code-block:: bash
 
     gen_readme/
     ├── conf/
+    │   ├── gen_readme.logo
     │   ├── gen_readme.cfg
     │   ├── gen_readme_util.cfg
     │   ├── project.yaml

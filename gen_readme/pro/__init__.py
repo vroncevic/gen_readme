@@ -21,9 +21,9 @@
 '''
 
 import sys
+from os.path import dirname, realpath
 
 try:
-    from pathlib import Path
     from gen_readme.pro.read_template import ReadTemplate
     from gen_readme.pro.write_template import WriteTemplate
     from ats_utilities.checker import ATSChecker
@@ -83,7 +83,7 @@ class GenReadmeModule(FileChecking):
         self.__reader = ReadTemplate(verbose=verbose)
         self.__writer = WriteTemplate(verbose=verbose)
         project = '{0}{1}'.format(
-            Path(__file__).parent, GenReadmeModule.PRO_STRUCTURE
+            dirname(realpath(__file__)), GenReadmeModule.PRO_STRUCTURE
         )
         self.check_path(file_path=project, verbose=verbose)
         self.check_mode(file_mode='r', verbose=verbose)
@@ -176,14 +176,8 @@ class GenReadmeModule(FileChecking):
                         'to be processed template', template_file
                     )
             while True:
-                try:
-                    try:
-                        input_type = raw_input(' select project type: ')
-                    except NameError:
-                        input_type = input(' select project type: ')
-                    options = xrange(1, pro_types_len + 1, 1)
-                except NameError:
-                    options = range(1, pro_types_len + 1, 1)
+                input_type = input(' select project type: ')
+                options = range(1, pro_types_len + 1, 1)
                 try:
                     if int(input_type) in list(options):
                         for target in types[int(input_type) - 1].values():

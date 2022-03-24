@@ -4,7 +4,7 @@
 
 **gen_readme** is tool for creating README.md doc module.
 
-Developed in **[python](https://www.python.org/)** code: **100%**.
+Developed in **[python](https://www.python.org/)** code.
 
 The README is used to introduce the modules and provide instructions on
 how to install the modules, any machine dependencies it may have and any
@@ -31,17 +31,19 @@ other information that should be provided before the modules are installed.
 
 ![Install Python2 Package](https://github.com/vroncevic/gen_readme/workflows/Install%20Python2%20Package%20gen_readme/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_readme/workflows/Install%20Python3%20Package%20gen_readme/badge.svg?branch=master)
 
-Currently there are three ways to install tool:
-* Install process based on pip
-* Install process based on setup.py (setuptools)
-* Install process based on docker mechanism
+Currently there are three ways to install tool
+
+- Install process based on pip
+- Install process based on setup.py (setuptools)
+- Install process based on docker mechanism
 
 ##### Install using pip
 
 Python package is located at **[pypi.org](https://pypi.org/project/gen_readme/)**.
 
 You can install by using pip
-```
+
+```bash
 #python2
 pip install gen_readme
 #python3
@@ -52,8 +54,9 @@ pip3 install gen_readme
 
 Navigate to **[release page](https://github.com/vroncevic/gen_readme/releases)** download and extract release archive.
 
-To install modules, locate and run setup.py, type the following:
-```
+To install modules, locate and run setup.py, type the following
+
+```bash
 tar xvzf gen_readme-x.y.z.tar.gz
 cd gen_readme-x.y.z
 #python2
@@ -76,19 +79,20 @@ You can use Dockerfile to create image/container.
 
 ### Dependencies
 
-**gen_readme** requires next modules and libraries:
+**gen_readme** requires next modules and libraries
 
-* [ats-utilities - Python App/Tool/Script Utilities](https://vroncevic.github.io/ats_utilities)
+- [ats-utilities - Python App/Tool/Script Utilities](https://vroncevic.github.io/ats_utilities)
 
 ### Tool structure
 
-**gen_readme** is based on OOP:
+**gen_readme** is based on OOP
 
-Generator structure:
+Generator structure
 
-```
+```bash
 gen_readme/
 ├── conf/
+│   ├── gen_readme.logo
 │   ├── gen_readme.cfg
 │   ├── gen_readme_util.cfg
 │   ├── project.yaml
@@ -118,9 +122,10 @@ gen_readme/
 
 [![Documentation Status](https://readthedocs.org/projects/gen_readme/badge/?version=latest)](https://gen_readme.readthedocs.io/projects/gen_readme/en/latest/?badge=latest)
 
-More documentation and info at:
-* [gen_readme.readthedocs.io](https://gen_readme.readthedocs.io/en/latest/)
-* [www.python.org](https://www.python.org/)
+More documentation and info at
+
+- [gen_readme.readthedocs.io](https://gen_readme.readthedocs.io/en/latest/)
+- [www.python.org](https://www.python.org/)
 
 ### Copyright and Licence
 
