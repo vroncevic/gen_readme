@@ -1,14 +1,24 @@
 templates:
-  - readme C: README_C.template
-  - readme AVR: README_AVR.template
-  - readme STM: README_STM.template
-  - readme RPI: README_RPI.template
-  - readme C++: README_CC.template
-  - readme Vala: README_VALA.template
-  - readme Perl: README_PL.template
-  - readme Python: README_PY.template
-  - readme Bash Shell: README_SH.template
-  - readme Java Script: README_JS.template
-  - cancel: null
+  - avr:
+    - README_AVR.template
+  - c:
+    - README_C.template
+  - cc:
+    - README_CC.template
+  - js:
+    - README_JS.template
+  - pl:
+    - README_PL.template
+  - py:
+    - README_PY.template
+  - rpi:
+    - README_RPI.template
+  - sh:
+    - README_SH.template
+  - stm:
+    - README_STM.template
+  - vala:
+    - README_VALA.template
 
-module: README_PRO.md
+modules:
+  - README.md
