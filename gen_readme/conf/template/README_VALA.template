@@ -1,3 +1,5 @@
+<img align="right" src="https://raw.githubusercontent.com/vroncevic/${PRO}/dev/docs/${PRO}_logo.png" width="25%">
+
 # ${PRO}
 
 **${PRO}** TODO.
@@ -26,8 +28,9 @@ other information that should be provided before the modules are installed.
 
 Navigate to **[release page](https://github.com/vroncevic/${PRO}/releases)** download and extract release archive.
 
-To install **${PRO}** type the following:
-```
+To install **${PRO}** type the following
+
+```bash
 tar xvzf ${PRO}-x.y.z.tar.gz
 cd ${PRO}-x.y.z
 ```
@@ -38,16 +41,17 @@ You can use docker to create image/container.
 
 ### Dependencies
 
-**${PRO}** requires next modules and libraries:
+**${PRO}** requires next modules and libraries
 
 * TODO
 
 ### App Library structure
 
-**${PRO}** is based on OOP:
+**${PRO}** is based on OOP
 
-App/Library structure:
-```
+App/Library structure
+
+```bash
 
 ```
 
@@ -55,7 +59,7 @@ App/Library structure:
 
 [![Documentation Status](https://readthedocs.org/projects/${PRO}/badge/?version=latest)](https://${PRO}.readthedocs.io/projects/${PRO}/en/latest/?badge=latest)
 
-More documentation and info at:
+More documentation and info at
 * [${PRO}.readthedocs.io](https://${PRO}.readthedocs.io/en/latest/)
 * [gnome.org/vala](https://wiki.gnome.org/Projects/Vala)
 
