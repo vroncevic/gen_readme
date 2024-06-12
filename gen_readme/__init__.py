@@ -17,13 +17,14 @@ Copyright
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
     Defined class GenReadme with attribute(s) and method(s).
-    Loads a base info, creates an CLI interface and runs operations.
+    Loads a base info, creates a CLI interface and runs operations.
 '''
 
 import sys
 from typing import Any, List, Dict
-from argparse import Namespace
 from os.path import exists, dirname, realpath
+from os import getcwd
+from argparse import Namespace
 
 try:
     from ats_utilities.splash import Splash
@@ -43,7 +44,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_readme'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -52,7 +53,7 @@ __status__ = 'Updated'
 class GenReadme(CfgCLI):
     '''
         Defines class GenReadme with attribute(s) and method(s).
-        Loads a base info, creates an CLI interface and runs operations.
+        Loads a base info, creates a CLI interface and runs operations.
 
         It defines:
 
@@ -72,9 +73,7 @@ class GenReadme(CfgCLI):
     _CONFIG: str = '/conf/gen_readme.cfg'
     _LOG: str = '/log/gen_readme.log'
     _LOGO: str = '/conf/gen_readme.logo'
-    _OPS: List[str] = [
-        '-g', '--gen', '-t', '--type', '-v', '--verbose', '--version'
-    ]
+    _OPS: List[str] = ['-n', '--name', '-t', '--type', '-v', '--verbose']
 
     def __init__(self, verbose: bool = False) -> None:
         '''
@@ -103,20 +102,17 @@ class GenReadme(CfgCLI):
         )
         if self.tool_operational:
             self.add_new_option(
-                self._OPS[0], self._OPS[1],
-                dest='gen', help='generate readme (provide project name)'
+                self._OPS[0], self._OPS[1], dest='name',
+                help='generate readme (provide project name)'
             )
             self.add_new_option(
-                self._OPS[2], self._OPS[3],
-                dest='type', help='type (avr/c/cc/js/pl/py/rpi/sh/stm/vala)'
+                self._OPS[2], self._OPS[3], dest='type',
+                help='type (avr/c/cc/js/pl/py/rpi/sh/stm/vala)'
             )
             self.add_new_option(
                 self._OPS[4], self._OPS[5],
                 action='store_true', default=False,
                 help='activate verbose mode for generation'
-            )
-            self.add_new_option(
-                self._OPS[6], action='version', version=__version__
             )
 
     def process(self, verbose: bool = False) -> bool:
@@ -131,85 +127,59 @@ class GenReadme(CfgCLI):
         '''
         status: bool = False
         if self.tool_operational:
-            if len(sys.argv) >= 6:
-                options: List[str] = [
-                    arg for i, arg in enumerate(sys.argv) if i % 2 == 0
-                ]
-                if any(arg not in self._OPS for arg in options[1:]):
+            try:
+                args: Any | Namespace = self.parse_args(sys.argv)
+                if not bool(getattr(args, "name")):
                     error_message(
-                        [
-                            f'{self._GEN_VERBOSE.lower()}',
-                            'provide name (-g name) and',
-                            'type (-t avr/c/cc/js/pl/py/rpi/sh/stm/vala)'
-                        ]
-                    )
-                    self._logger.write_log(
-                        'missing module name or type', self._logger.ATS_ERROR
+                        [f'{self._GEN_VERBOSE.lower()} missing name argument']
                     )
                     return status
-            else:
-                error_message(
-                    [
+                if not bool(getattr(args, "type")):
+                    error_message(
+                        [f'{self._GEN_VERBOSE.lower()} missing type argument']
+                    )
+                    return status
+                if exists(f'{getcwd()}/{str(getattr(args, "name"))}'):
+                    error_message([
                         f'{self._GEN_VERBOSE.lower()}',
-                        'provide name (-g name) and',
-                        'type (-t avr/c/cc/js/pl/py/rpi/sh/stm/vala)'
-                    ]
-                )
-                self._logger.write_log(
-                    'missing module name or type', self._logger.ATS_ERROR
-                )
-                return status
-            args: Any | Namespace = self.parse_args(sys.argv[2:])
-            if not exists(getattr(args, 'gen')):
-                print(
-                    " ".join([
-                        f'[{self._GEN_VERBOSE.lower()}]',
-                        'gen py module skeleton',
-                        str(getattr(args, 'gen'))
+                        f'project with name [{getattr(args, "name")}] exists'
                     ])
-                )
-                generator: GenReadmeModule = GenReadmeModule(
+                    return status
+                gen: GenReadmeModule = GenReadmeModule(
                     getattr(args, 'verbose') or verbose
                 )
                 try:
-                    status = generator.gen_setup(
-                        f'{getattr(args, "gen")}',
+                    print(
+                        " ".join([
+                            f'[{self._GEN_VERBOSE.lower()}]',
+                            'generate README module skeleton',
+                            str(getattr(args, 'name'))
+                        ])
+                    )
+                    status = gen.gen_setup(
+                        f'{getattr(args, "name")}',
                         f'{getattr(args, "type")}',
                         getattr(args, 'verbose') or verbose
                     )
                 except (ATSTypeError, ATSValueError) as e:
-                    error_message(
-                        [f'{self._GEN_VERBOSE.lower()} {str(e)}']
-                    )
-                    self._logger.write_log(
-                        f'{str(e)}', self._logger.ATS_ERROR
-                    )
+                    error_message([f'{self._GEN_VERBOSE.lower()} {str(e)}'])
+                    self._logger.write_log(f'{str(e)}', self._logger.ATS_ERROR)
                 if status:
-                    success_message(
-                        [f'{self._GEN_VERBOSE.lower()} done\n']
-                    )
+                    success_message([f'{self._GEN_VERBOSE.lower()} done\n'])
                     self._logger.write_log(
-                        f'gen pro {getattr(args, "gen")} done',
+                        f'generation {getattr(args, "name")} done',
                         self._logger.ATS_INFO
                     )
                 else:
-                    error_message(
-                        [f'{self._GEN_VERBOSE.lower()} generation failed']
-                    )
+                    error_message([f'{self._GEN_VERBOSE.lower()} failed'])
                     self._logger.write_log(
                         'generation failed', self._logger.ATS_ERROR
                     )
-            else:
+            except SystemExit:
                 error_message(
-                    [
-                        f'{self._GEN_VERBOSE.lower()}',
-                        f'project with name [{getattr(args, "gen")}] exists'
-                    ]
+                    [f'{self._GEN_VERBOSE.lower()} expected argument -n']
                 )
-                self._logger.write_log(
-                    f'project with name [{getattr(args, "gen")}] exists',
-                    self._logger.ATS_ERROR
-                )
+                return status
         else:
             error_message(
                 [f'{self._GEN_VERBOSE.lower()} tool is not operational']
