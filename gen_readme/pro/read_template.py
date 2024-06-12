@@ -37,7 +37,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_form_model'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -112,15 +112,15 @@ class ReadTemplate(FileCheck):
         current_dir: str = dirname(realpath(__file__))
         pro_structure: str = f'{current_dir}{self._TEMPLATE_DIR}'
         template_content: Dict[str, str] = {}
-        index = -1
+        index: int = -1
         for i in range(len(config['templates'])):
             if pro_type in config['templates'][i]:
                 index = i
                 break
         else:
             return template_content
-        module = config['modules'][0]
-        template = config['templates'][index][pro_type][0]
+        module: str = config['modules'][0]
+        template: List[str] = config['templates'][index][pro_type][0]
         template_file: str = f'{pro_structure}/{template}'
         with open(template_file, 'r', encoding='utf-8') as module_file:
             template_content[module] = module_file.read()

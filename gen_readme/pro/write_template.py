@@ -39,7 +39,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_readme'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -103,7 +103,7 @@ class WriteTemplate(FileCheck):
             raise ATSValueError('missing readme content')
         if not bool(pro_name):
             raise ATSValueError('missing project name')
-        module_pro_dir = f'{getcwd()}/{pro_name}/'
+        module_pro_dir: str = f'{getcwd()}/{pro_name}/'
         mkdir(module_pro_dir)
         status: bool = False
         for module_name, module_content in template_content.items():
