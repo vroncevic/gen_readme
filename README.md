@@ -137,6 +137,15 @@ Generator structure
         
         6 directories, 20 files
 ```
+### Code coverage
+
+| Name | Stmts | Miss | Cover |
+|------|-------|------|-------|
+| `gen_readme/__init__.py` | 75 | 14 | 81% |
+| `gen_readme/pro/__init__.py` | 62 | 2 | 97% |
+| `gen_readme/pro/read_template.py` | 52 | 5 | 90% |
+| `gen_readme/pro/write_template.py` | 50 | 2 | 96% |
+| **Total** | 239 | 23 | 90% |
 
 ### Docs
 
