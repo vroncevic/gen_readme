@@ -23,6 +23,7 @@ other information that should be provided before the modules are installed.
     - [Install using docker](#install-using-docker)
 - [Dependencies](#dependencies)
 - [Tool structure](#tool-structure)
+- [Code coverage](#code-coverage)
 - [Docs](#docs)
 - [Contributing](#contributing)
 - [Copyright and licence](#copyright-and-licence)
@@ -141,11 +142,11 @@ Generator structure
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_readme/__init__.py` | 75 | 14 | 81% |
-| `gen_readme/pro/__init__.py` | 62 | 2 | 97% |
-| `gen_readme/pro/read_template.py` | 52 | 5 | 90% |
-| `gen_readme/pro/write_template.py` | 50 | 2 | 96% |
-| **Total** | 239 | 23 | 90% |
+| `gen_readme/__init__.py` | 73 | 12 | 84%|
+| `gen_readme/pro/__init__.py` | 60 | 0 | 100%|
+| `gen_readme/pro/read_template.py` | 50 | 3 | 94%|
+| `gen_readme/pro/write_template.py` | 48 | 0 | 100%|
+| **Total** | 231 | 15 | 94% |
 
 ### Docs
 
@@ -164,7 +165,7 @@ More documentation and info at
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2020 - 2024 by [vroncevic.github.io/gen_readme](https://vroncevic.github.io/gen_readme/)
+Copyright (C) 2020 - 2026 by [vroncevic.github.io/gen_readme](https://vroncevic.github.io/gen_readme/)
 
 **gen_readme** is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
