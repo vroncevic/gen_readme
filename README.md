@@ -24,6 +24,7 @@ other information that should be provided before the modules are installed.
 - [Dependencies](#dependencies)
 - [Tool structure](#tool-structure)
 - [Code coverage](#code-coverage)
+- [Usage](#usage)
 - [Docs](#docs)
 - [Contributing](#contributing)
 - [Copyright and licence](#copyright-and-licence)
@@ -108,45 +109,115 @@ You can use Dockerfile to create image/container.
 
 Generator structure
 
+<details>
+<summary><b>Click to expand framework structure</b></summary>
+
 ```bash
     gen_readme/
-        ├── conf/
-        │   ├── gen_readme.cfg
-        │   ├── gen_readme.logo
-        │   ├── gen_readme_util.cfg
-        │   ├── project.yaml
-        │   └── template/
-        │       ├── README_AVR.template
-        │       ├── README_CC.template
-        │       ├── README_C.template
-        │       ├── README_JS.template
-        │       ├── README_PL.template
-        │       ├── README_PY.template
-        │       ├── README_RPI.template
-        │       ├── README_SH.template
-        │       ├── README_STM.template
-        │       └── README_VALA.template
-        ├── __init__.py
-        ├── log/
-        │   └── gen_readme.log
-        ├── pro/
-        │   ├── __init__.py
-        │   ├── read_template.py
-        │   └── write_template.py
-        └── run/
-            └── gen_readme_run.py
-        
-        6 directories, 20 files
+         ├── application/
+         │   ├── __init__.py
+         │   ├── service.py
+         │   └── service_bundle.py
+         ├── domain/
+         │   ├── __init__.py
+         │   ├── models.py
+         │   └── ports/
+         │       ├── ifile_gen.py
+         │       ├── ifile_writer.py
+         │       ├── __init__.py
+         │       └── itemplate_provider.py
+         ├── engine.py
+         ├── gen_readme_bundle.py
+         ├── infrastructure/
+         │   ├── cli.py
+         │   ├── cli_bundle.py
+         │   ├── config/
+         │   │   ├── gen_readme.cfg
+         │   │   └── gen_readme.logo
+         │   ├── file_writer.py
+         │   ├── gen_readme_command.py
+         │   ├── icli.py
+         │   ├── icli_command.py
+         │   ├── __init__.py
+         │   ├── template_provider.py
+         │   └── templates/
+         │       ├── README_AVR.template
+         │       ├── README_C.template
+         │       ├── README_CC.template
+         │       ├── README_JS.template
+         │       ├── README_PL.template
+         │       ├── README_PY.template
+         │       ├── README_RPI.template
+         │       ├── README_SH.template
+         │       ├── README_STM.template
+         │       └── README_VALA.template
+         ├── __init__.py
+         └── py.typed
+
+     7 directories, 33 files
 ```
+</details>
+
 ### Code coverage
+
+<details>
+<summary><b>Click to expand code coverage</b></summary>
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_readme/__init__.py` | 73 | 12 | 84%|
-| `gen_readme/pro/__init__.py` | 60 | 0 | 100%|
-| `gen_readme/pro/read_template.py` | 50 | 3 | 94%|
-| `gen_readme/pro/write_template.py` | 48 | 0 | 100%|
-| **Total** | 231 | 15 | 94% |
+| `gen_readme/__init__.py` | 8 | 0 | 100%|
+| `gen_readme/application/__init__.py` | 8 | 0 | 100%|
+| `gen_readme/application/service.py` | 35 | 0 | 100%|
+| `gen_readme/application/service_bundle.py` | 29 | 0 | 100%|
+| `gen_readme/domain/__init__.py` | 8 | 0 | 100%|
+| `gen_readme/domain/models.py` | 20 | 0 | 100%|
+| `gen_readme/domain/ports/__init__.py` | 8 | 0 | 100%|
+| `gen_readme/domain/ports/ifile_gen.py` | 11 | 0 | 100%|
+| `gen_readme/domain/ports/ifile_writer.py` | 10 | 0 | 100%|
+| `gen_readme/domain/ports/itemplate_provider.py` | 10 | 0 | 100%|
+| `gen_readme/engine.py` | 64 | 0 | 100%|
+| `gen_readme/gen_readme_bundle.py` | 41 | 0 | 100%|
+| `gen_readme/infrastructure/__init__.py` | 8 | 0 | 100%|
+| `gen_readme/infrastructure/cli.py` | 36 | 0 | 100%|
+| `gen_readme/infrastructure/cli_bundle.py` | 33 | 0 | 100%|
+| `gen_readme/infrastructure/file_writer.py` | 30 | 0 | 100%|
+| `gen_readme/infrastructure/gen_readme_command.py` | 44 | 0 | 100%|
+| `gen_readme/infrastructure/icli.py` | 11 | 0 | 100%|
+| `gen_readme/infrastructure/icli_command.py` | 14 | 0 | 100%|
+| `gen_readme/infrastructure/template_provider.py` | 29 | 0 | 100%|
+| **Total** | 457 | 0 | 100% |
+
+</details>
+
+### Usage
+
+Install package
+
+```bash
+pip3 install gen_readme
+```
+
+Prepare main entry point by downloading [main.py](https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py) or create your own.
+
+
+```bash
+wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py
+```
+
+Running tool for creating new distributing py module
+
+```bash
+python3 main.py generate-readme \
+    --type "avr" \
+    --project-name "gen_readme" \
+    --version "1.1.5" \
+    --description "Generate README.md file" \
+    --author-name "Vladimir Roncevic" \
+    --author-url "https://vroncevic.github.io" \
+    --license "MIT" \
+    --repo-url "https://github.com/vroncevic/gen_readme" \
+    --filename "README_AVR.md"
+```
 
 ### Docs
 

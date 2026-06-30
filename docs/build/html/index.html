@@ -54,13 +54,21 @@ other information that should be provided before the modules are installed.</p>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">gen_readme</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gen_readme.html">gen_readme package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gen_readme.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_readme.pro.html">gen_readme.pro package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_readme.application.html">gen_readme.application package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_readme.domain.html">gen_readme.domain package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_readme.infrastructure.html">gen_readme.infrastructure package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gen_readme.html#module-gen_readme">Module contents</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_readme.html#gen_readme.GenReadme"><code class="docutils literal notranslate"><span class="pre">GenReadme</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_readme.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_readme.engine.html">gen_readme.engine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_readme.gen_readme_bundle.html">gen_readme.gen_readme_bundle module</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="gen_readme.html#module-gen_readme">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main.html#main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -107,33 +115,71 @@ pip3<span class="w"> </span>install<span class="w"> </span>gen_readme
 <p><strong>gen_readme</strong> is based on OOP</p>
 <p>Code structure</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen_readme/
-<span class="w">    </span>├──<span class="w"> </span>conf/
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_readme.cfg
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_readme.logo
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_readme_util.cfg
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>project.yaml
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>template/
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_AVR.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_CC.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_C.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_JS.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_PL.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_PY.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_RPI.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_SH.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>README_STM.template
-<span class="w">    </span>│<span class="w">       </span>└──<span class="w"> </span>README_VALA.template
-<span class="w">    </span>├──<span class="w"> </span>__init__.py
-<span class="w">    </span>├──<span class="w"> </span>log/
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>gen_readme.log
-<span class="w">    </span>├──<span class="w"> </span>pro/
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>read_template.py
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>write_template.py
-<span class="w">    </span>└──<span class="w"> </span>run/
-<span class="w">        </span>└──<span class="w"> </span>gen_readme_run.py
+<span class="w">     </span>├──<span class="w"> </span>application/
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>service.py
+<span class="w">     </span>│<span class="w">   </span>└──<span class="w"> </span>service_bundle.py
+<span class="w">     </span>├──<span class="w"> </span>domain/
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>models.py
+<span class="w">     </span>│<span class="w">   </span>└──<span class="w"> </span>ports/
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>ifile_gen.py
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>ifile_writer.py
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">       </span>└──<span class="w"> </span>itemplate_provider.py
+<span class="w">     </span>├──<span class="w"> </span>engine.py
+<span class="w">     </span>├──<span class="w"> </span>gen_readme_bundle.py
+<span class="w">     </span>├──<span class="w"> </span>infrastructure/
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>cli.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>cli_bundle.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>config/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_readme.cfg
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>gen_readme.logo
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>file_writer.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>gen_readme_command.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>icli.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>icli_command.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>template_provider.py
+<span class="w">     </span>│<span class="w">   </span>└──<span class="w"> </span>templates/
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_AVR.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_C.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_CC.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_JS.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_PL.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_PY.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_RPI.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_SH.template
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>README_STM.template
+<span class="w">     </span>│<span class="w">       </span>└──<span class="w"> </span>README_VALA.template
+<span class="w">     </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>└──<span class="w"> </span>py.typed
 
-<span class="w">    </span><span class="m">6</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">20</span><span class="w"> </span>files
+<span class="w"> </span><span class="m">7</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">33</span><span class="w"> </span>files
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<p>Install package</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>gen_readme
+</pre></div>
+</div>
+<p>Prepare main entry point by downloading <a class="reference external" href="https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py">main.py</a> or create your own.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-O<span class="w"> </span>main.py<span class="w"> </span>https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py
+</pre></div>
+</div>
+<p>Running tool for creating new distributing py module</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>main.py<span class="w"> </span>generate-readme<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span><span class="s2">&quot;avr&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--project-name<span class="w"> </span><span class="s2">&quot;gen_readme&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--version<span class="w"> </span><span class="s2">&quot;1.1.5&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;Generate README.md file&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--author-name<span class="w"> </span><span class="s2">&quot;Vladimir Roncevic&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--author-url<span class="w"> </span><span class="s2">&quot;https://vroncevic.github.io&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--license<span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--repo-url<span class="w"> </span><span class="s2">&quot;https://github.com/vroncevic/gen_readme&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--filename<span class="w"> </span><span class="s2">&quot;README_AVR.md&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -171,6 +217,7 @@ at your option, any later version of Python 3 you may have available.</p>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#tool-structure">Tool structure</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
 <li><a class="reference internal" href="#copyright-and-licence">Copyright and licence</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
