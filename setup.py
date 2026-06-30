@@ -20,37 +20,54 @@ Info
     Defines setup for tool gen_readme.
 '''
 
-from __future__ import print_function
-from typing import List, Optional
-from os.path import abspath, dirname, join
-from setuptools import setup
+from os import walk
+from os.path import abspath, dirname, join, relpath
+from setuptools import setup, find_packages
 
 __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
-__credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
+__credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.4'
+__version__: str = '1.1.5'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Updated'
 
-TOOL_DIR = 'gen_readme/'
-CONF: str = 'conf'
-TEMPLATE: str = 'conf/template'
-LOG: str = 'log'
 THIS_DIR: str = abspath(dirname(__file__))
-long_description: Optional[str] = None
+long_description: str | None = None
+
 with open(join(THIS_DIR, 'README.md'), encoding='utf-8') as readme:
     long_description = readme.read()
+
 PROGRAMMING_LANG: str = 'Programming Language :: Python ::'
-VERSIONS: List[str] = ['3.10', '3.11', '3.12']
-SUPPORTED_PY_VERSIONS: List[str] = [
-    f'{PROGRAMMING_LANG} {VERSION}' for VERSION in VERSIONS
-]
-PYP_CLASSIFIERS: List[str] = SUPPORTED_PY_VERSIONS
+VERSIONS: list[str] = ['3.12', '3.13', '3.14']
+SUPPORTED_PY_VERSIONS: list[str] = [f'{PROGRAMMING_LANG} {VERSION}' for VERSION in VERSIONS]
+PYP_CLASSIFIERS: list[str] = SUPPORTED_PY_VERSIONS
+
+def find_package_data(pkg: str) -> list[str]:
+    '''
+        Finds all files in package to include in package_data.
+
+        :param pkg: Package folder name.
+        :type pkg: <str>
+        :return: List of package files relative to the package folder.
+        :rtype: <list[str]>
+        :exceptions: None.
+    '''
+    package_data: list[str] = []
+    for root, dirs, files in walk(pkg):
+        dirs[:] = [d for d in dirs if d != '__pycache__']
+        for file in files:
+            if file.endswith('.pyc') or file == '.editorconfig':
+                continue
+            full_path: str = join(root, file)
+            rel_path: str = relpath(full_path, pkg)
+            package_data.append(rel_path)
+    return package_data
+
 setup(
     name='gen_readme',
-    version='1.1.4',
+    version='1.1.5',
     description='Readme doc generator',
     author='Vladimir Roncevic',
     author_email='elektron.ronca@gmail.com',
@@ -61,31 +78,9 @@ setup(
     keywords='Readme, README, project, Unix, Linux, Docs',
     platforms='POSIX',
     classifiers=PYP_CLASSIFIERS,
-    packages=['gen_readme', 'gen_readme.pro'],
+    packages=find_packages(exclude=['tests', 'tests.*', '*.*.pyc', '*.pyo']),
     install_requires=['ats-utilities'],
     package_data={
-        'gen_readme': [
-            'py.typed',
-            f'{CONF}/gen_readme.logo',
-            f'{CONF}/gen_readme.cfg',
-            f'{CONF}/gen_readme_util.cfg',
-            f'{CONF}/project.yaml',
-            f'{TEMPLATE}/README_AVR.template',
-            f'{TEMPLATE}/README_C.template',
-            f'{TEMPLATE}/README_CC.template',
-            f'{TEMPLATE}/README_JS.template',
-            f'{TEMPLATE}/README_PL.template',
-            f'{TEMPLATE}/README_PY.template',
-            f'{TEMPLATE}/README_RPI.template',
-            f'{TEMPLATE}/README_SH.template',
-            f'{TEMPLATE}/README_STM.template',
-            f'{TEMPLATE}/README_VALA.template',
-            f'{LOG}/gen_readme.log'
-        ]
-    },
-    data_files=[(
-        '/usr/local/bin/', [
-            f'{TOOL_DIR}run/gen_readme_run.py'
-        ]
-    )]
+        'gen_readme': find_package_data('gen_readme')
+    }
 )

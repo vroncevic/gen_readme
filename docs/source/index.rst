@@ -88,33 +88,77 @@ Code structure
 .. code-block:: bash
 
     gen_readme/
-        ├── conf/
-        │   ├── gen_readme.cfg
-        │   ├── gen_readme.logo
-        │   ├── gen_readme_util.cfg
-        │   ├── project.yaml
-        │   └── template/
-        │       ├── README_AVR.template
-        │       ├── README_CC.template
-        │       ├── README_C.template
-        │       ├── README_JS.template
-        │       ├── README_PL.template
-        │       ├── README_PY.template
-        │       ├── README_RPI.template
-        │       ├── README_SH.template
-        │       ├── README_STM.template
-        │       └── README_VALA.template
-        ├── __init__.py
-        ├── log/
-        │   └── gen_readme.log
-        ├── pro/
-        │   ├── __init__.py
-        │   ├── read_template.py
-        │   └── write_template.py
-        └── run/
-            └── gen_readme_run.py
-        
-        6 directories, 20 files
+         ├── application/
+         │   ├── __init__.py
+         │   ├── service.py
+         │   └── service_bundle.py
+         ├── domain/
+         │   ├── __init__.py
+         │   ├── models.py
+         │   └── ports/
+         │       ├── ifile_gen.py
+         │       ├── ifile_writer.py
+         │       ├── __init__.py
+         │       └── itemplate_provider.py
+         ├── engine.py
+         ├── gen_readme_bundle.py
+         ├── infrastructure/
+         │   ├── cli.py
+         │   ├── cli_bundle.py
+         │   ├── config/
+         │   │   ├── gen_readme.cfg
+         │   │   └── gen_readme.logo
+         │   ├── file_writer.py
+         │   ├── gen_readme_command.py
+         │   ├── icli.py
+         │   ├── icli_command.py
+         │   ├── __init__.py
+         │   ├── template_provider.py
+         │   └── templates/
+         │       ├── README_AVR.template
+         │       ├── README_C.template
+         │       ├── README_CC.template
+         │       ├── README_JS.template
+         │       ├── README_PL.template
+         │       ├── README_PY.template
+         │       ├── README_RPI.template
+         │       ├── README_SH.template
+         │       ├── README_STM.template
+         │       └── README_VALA.template
+         ├── __init__.py
+         └── py.typed
+
+     7 directories, 33 files
+
+Usage
+-----
+
+Install package
+
+.. code-block:: bash
+
+    pip3 install gen_readme
+
+Prepare main entry point by downloading `main.py <https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py>`_ or create your own.
+
+.. code-block:: bash
+
+    wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py
+
+Running tool for creating new distributing py module
+
+.. code-block:: bash
+
+    python3 main.py generate-readme \
+        --type "avr" \
+        --project-name "gen_readme" \
+        --version "1.1.5" \
+        --description "Generate README.md file" \
+        --author-name "Vladimir Roncevic" \
+        --author-url "https://vroncevic.github.io" \
+        --license "MIT" \
+        --repo-url "https://github.com/vroncevic/gen_readme" \
+        --filename "README_AVR.md"
 
 Copyright and licence
 ----------------------
