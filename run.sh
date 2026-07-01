@@ -3,7 +3,7 @@
 python3 main.py generate-readme \
     --type "avr" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -14,7 +14,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "c" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -25,7 +25,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "cc" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -36,7 +36,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "js" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -47,7 +47,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "pl" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -58,7 +58,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "py" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -69,7 +69,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "rpi" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -80,7 +80,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "sh" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -91,7 +91,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "stm" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \
@@ -102,7 +102,7 @@ python3 main.py generate-readme \
 python3 main.py generate-readme \
     --type "vala" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \

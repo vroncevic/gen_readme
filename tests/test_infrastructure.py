@@ -43,7 +43,7 @@ __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.5'
+__version__: str = '1.1.6'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Development'
@@ -155,7 +155,7 @@ class TestInfrastructure(unittest.TestCase):
         context: ContextBundle = ContextBundle(checker=Checker(), reporter=Reporter(), verbose=False)
         params: dict[str, str] = {
             'ats_name': 'test_cli',
-            'ats_version': '1.1.5',
+            'ats_version': '1.1.6',
             'ats_licence': 'MIT',
             'ats_build_date': '2026-06-22'
         }
@@ -239,7 +239,7 @@ class TestInfrastructure(unittest.TestCase):
         params: dict[str, str] = {
             "type": "py",
             "project_name": "gen_readme",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "description": "Generate README.md file",
             "author_name": "Vladimir Roncevic",
             "author_url": "https://vroncevic.github.io",
@@ -255,7 +255,7 @@ class TestInfrastructure(unittest.TestCase):
             cli_params={
                 "type": "py",
                 "project_name": "gen_readme",
-                "version": "1.1.5",
+                "version": "1.1.6",
                 "description": "Generate README.md file",
                 "author_name": "Vladimir Roncevic",
                 "author_url": "https://vroncevic.github.io",
@@ -263,7 +263,7 @@ class TestInfrastructure(unittest.TestCase):
                 "repo_url": "https://github.com/vroncevic/gen_readme",
                 "PRO": "gen_readme",
                 "YEAR": current_year,
-                "VERSION": "1.1.5",
+                "VERSION": "1.1.6",
                 "DESCRIPTION": "Generate README.md file",
                 "AUTHOR_NAME": "Vladimir Roncevic",
                 "AUTHOR_URL": "https://vroncevic.github.io",
