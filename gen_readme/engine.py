@@ -43,7 +43,7 @@ __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.5'
+__version__: str = '1.1.6'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Development'
@@ -60,7 +60,7 @@ class GenReadme(Base):
                 | _cli - Adapter for command line user interface.
             :methods:
                 | __init__ - Initializes the GenReadme engine with adapters and services.
-                | run - Starts the gen_readme.
+                | process - Processes the gen_readme.
     '''
 
     _info_file: str = 'infrastructure/config/gen_readme.cfg'
@@ -112,7 +112,7 @@ class GenReadme(Base):
             ])
             self._reporter.success(["✅ gen_readme: engine initialized successfully."])
 
-        except ATSValueError as exc:
+        except (ATSValueError, ValueError) as exc:
             self._reporter.error([f'❌ gen_readme: {exc}'])
         except Exception as exc:
             self._reporter.error([f'❌ gen_readme unexpected exception: {exc}'])
@@ -120,22 +120,28 @@ class GenReadme(Base):
     @override
     def process(self) -> None:
         '''
-            Starts the CLI adapter to run the tool command.
+            Process the CLI adapter to run the tool command.
 
             :exceptions: None.
         '''
         result: dict[str, Any] = {}
 
-        if self.is_initialized():
-            self._reporter.success(["🔥 Starting execution command..."])
-            result = self._cli.run()
-            self._reporter.success(["✅ Execution finished!"])
+        try:
+            if self.is_initialized():
+                self._reporter.success(["🔥 Starting execution command..."])
+                result = self._cli.run()
+                self._reporter.success(["✅ Execution finished!"])
 
-            if result.get("returncode") != 0:
-                self._reporter.error([f'❌ gen_readme: {result.get("stderr")}'])
-                self._reporter.error([f'❌ gen_readme: exiting with error.'])
+                if result.get("returncode") != 0:
+                    self._reporter.error([f'❌ gen_readme: {result.get("stderr")}'])
+                    self._reporter.error([f'❌ gen_readme: exiting with error.'])
+                else:
+                    self._reporter.success([f'✅ gen_readme: {result.get("stdout") or 'done!'}'])
+                    self._reporter.success([f'✅ gen_readme: exiting successfully.'])
             else:
-                self._reporter.success([f'✅ gen_readme: {result.get("stdout") or 'done!'}'])
-                self._reporter.success([f'✅ gen_readme: exiting successfully.'])
-        else:
-            self._reporter.error([f'❌ gen_readme: engine not initialized.'])
+                self._reporter.error([f'❌ gen_readme: engine not initialized.'])
+
+        except (ATSValueError, ValueError) as exc:
+            self._reporter.error([f'❌ gen_readme: {exc}'])
+        except Exception as exc:
+            self._reporter.error([f'❌ gen_readme unexpected exception: {exc}'])

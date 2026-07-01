@@ -167,15 +167,15 @@ Generator structure
 |------|-------|------|-------|
 | `gen_readme/__init__.py` | 8 | 0 | 100%|
 | `gen_readme/application/__init__.py` | 8 | 0 | 100%|
-| `gen_readme/application/service.py` | 35 | 0 | 100%|
-| `gen_readme/application/service_bundle.py` | 29 | 0 | 100%|
+| `gen_readme/application/service.py` | 30 | 0 | 100%|
+| `gen_readme/application/service_bundle.py` | 28 | 0 | 100%|
 | `gen_readme/domain/__init__.py` | 8 | 0 | 100%|
 | `gen_readme/domain/models.py` | 20 | 0 | 100%|
 | `gen_readme/domain/ports/__init__.py` | 8 | 0 | 100%|
 | `gen_readme/domain/ports/ifile_gen.py` | 11 | 0 | 100%|
 | `gen_readme/domain/ports/ifile_writer.py` | 10 | 0 | 100%|
 | `gen_readme/domain/ports/itemplate_provider.py` | 10 | 0 | 100%|
-| `gen_readme/engine.py` | 64 | 0 | 100%|
+| `gen_readme/engine.py` | 69 | 0 | 100%|
 | `gen_readme/gen_readme_bundle.py` | 41 | 0 | 100%|
 | `gen_readme/infrastructure/__init__.py` | 8 | 0 | 100%|
 | `gen_readme/infrastructure/cli.py` | 36 | 0 | 100%|
@@ -185,7 +185,7 @@ Generator structure
 | `gen_readme/infrastructure/icli.py` | 11 | 0 | 100%|
 | `gen_readme/infrastructure/icli_command.py` | 14 | 0 | 100%|
 | `gen_readme/infrastructure/template_provider.py` | 29 | 0 | 100%|
-| **Total** | 457 | 0 | 100% |
+| **Total** | 456 | 0 | 100% |
 
 </details>
 
@@ -210,7 +210,7 @@ Running tool for creating new distributing py module
 python3 main.py generate-readme \
     --type "avr" \
     --project-name "gen_readme" \
-    --version "1.1.5" \
+    --version "1.1.6" \
     --description "Generate README.md file" \
     --author-name "Vladimir Roncevic" \
     --author-url "https://vroncevic.github.io" \

@@ -28,7 +28,7 @@ __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.5'
+__version__: str = '1.1.6'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Updated'
@@ -67,7 +67,7 @@ def find_package_data(pkg: str) -> list[str]:
 
 setup(
     name='gen_readme',
-    version='1.1.5',
+    version='1.1.6',
     description='Readme doc generator',
     author='Vladimir Roncevic',
     author_email='elektron.ronca@gmail.com',

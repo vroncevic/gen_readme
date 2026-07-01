@@ -20,8 +20,6 @@ Info
 '''
 
 from typing import Any, override
-from ats_utilities.factory_class import format_instance_to_string
-from ats_utilities.exceptions.ats_value_error import ATSValueError
 from gen_readme.domain.ports.ifile_gen import IFileGen
 from gen_readme.application.service_bundle import ServiceBundle
 from gen_readme.domain.ports.itemplate_provider import ITemplateProvider
@@ -32,7 +30,7 @@ __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.5'
+__version__: str = '1.1.6'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Development'
@@ -60,10 +58,10 @@ class FileGen(IFileGen):
             :param component_bundle: Bundle containing template provider and file writer.
             :type component_bundle: <ServiceBundle>
             :exceptions:
-                | ATSValueError: Component bundle (ServiceBundle) cannot be None or invalid.
+                | ValueError: Component bundle (ServiceBundle) cannot be None or invalid.
         '''
         if component_bundle is None:
-            raise ATSValueError('component bundle (ServiceBundle) cannot be None.')
+            raise ValueError('component bundle (ServiceBundle) cannot be None.')
 
         component_bundle.validate()
         self._template_provider: ITemplateProvider = component_bundle.template_provider
@@ -111,14 +109,3 @@ class FileGen(IFileGen):
             :exceptions: None.
         '''
         return True
-
-    @override
-    def __str__(self) -> str:
-        '''
-            Returns the file generator as string representation.
-
-            :return: The file generator as string representation.
-            :rtype: <str>
-            :exceptions: None.
-        '''
-        return format_instance_to_string(self)

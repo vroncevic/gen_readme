@@ -26,7 +26,7 @@ __author__: str = 'Vladimir Roncevic'
 __copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__: str = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__: str = '1.1.5'
+__version__: str = '1.1.6'
 __maintainer__: str = 'Vladimir Roncevic'
 __email__: str = 'elektron.ronca@gmail.com'
 __status__: str = 'Development'
@@ -42,7 +42,6 @@ class IFileGen(ABC):
             :methods:
                 | execute - Executes the file generation.
                 | is_initialized - Checks if the file generator component is initialized.
-                | __str__ - Returns the file generator as string representation.
     '''
 
     @abstractmethod
@@ -69,17 +68,6 @@ class IFileGen(ABC):
 
             :return: True (success) | False (fail).
             :rtype: <bool>
-            :exceptions: None.
-        '''
-        pass
-
-    @abstractmethod
-    def __str__(self) -> str:
-        '''
-            Returns the file generator as string representation.
-
-            :return: The file generator as string representation.
-            :rtype: <str>
             :exceptions: None.
         '''
         pass
