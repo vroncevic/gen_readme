@@ -1,13 +1,13 @@
-Create README.md doc module
-----------------------------
+Create README project skeleton
+---------------------------------------
 
-**gen_readme** is tool for creating README.md doc module.
+**gen_readme** is tool for creating README project skeleton.
 
-Developed in `python <https://www.python.org/>`_ code: **100%**.
+Developed in `python <https://www.python.org/>`_ code.
 
-The README is used to introduce the modules and provide instructions on
-how to install the modules, any machine dependencies it may have and any
-other information that should be provided before the modules are installed.
+The README is used to introduce the tool and provide instructions on
+how to install the tool, any machine dependencies it may have and any
+other information that should be provided before the tool is installed.
 
 |gen_readme python checker| |gen_readme python package| |github issues| |documentation status| |github contributors|
 
@@ -23,7 +23,7 @@ other information that should be provided before the modules are installed.
 .. |github contributors| image:: https://img.shields.io/github/contributors/vroncevic/gen_readme.svg
    :target: https://github.com/vroncevic/gen_readme/graphs/contributors
 
-.. |documentation status| image:: https://readthedocs.org/projects/gen_readme/badge/?version=latest
+.. |documentation status| image:: https://readthedocs.org/projects/gen-readme/badge/?version=latest
    :target: https://gen-readme.readthedocs.io/en/latest/?badge=latest
 
 .. toctree::
@@ -33,8 +33,8 @@ other information that should be provided before the modules are installed.
    self
    modules
 
-Installation
--------------
+🚀 Installation
+---------------
 
 |gen_readme python3 build|
 
@@ -45,7 +45,7 @@ Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/gen_readme/releases
 
-To install this set of modules type the following
+To install **gen_readme** type the following
 
 .. code-block:: bash
 
@@ -61,77 +61,108 @@ To install this set of modules type the following
     python3 -m build --no-isolation --wheel
     pip3 install ./dist/gen_readme-*-py3-none-any.whl
     rm -f get-pip.py
-    chmod 755 /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_readme_run.py
-    ln -s /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_readme_run.py /usr/local/bin/gen_readme_run.py
 
 You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
-    #python3
+    # python3
     pip3 install gen_readme
 
-Dependencies
--------------
+📦 Dependencies
+---------------
 
 **gen_readme** requires next modules and libraries
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
+📁 Tool structure
+-----------------
+
+**gen_readme** is based on OOP.
+
 Tool structure
-------------------
-
-**gen_readme** is based on OOP
-
-Code structure
 
 .. code-block:: bash
 
     gen_readme/
-         ├── application/
+         ├── core/
          │   ├── __init__.py
-         │   ├── service.py
-         │   └── service_bundle.py
-         ├── domain/
-         │   ├── __init__.py
-         │   ├── models.py
-         │   └── ports/
-         │       ├── ifile_gen.py
-         │       ├── ifile_writer.py
+         │   ├── model/
+         │   │   ├── __init__.py
+         │   │   └── project_setup.py
+         │   └── service/
+         │       ├── engine.py
          │       ├── __init__.py
-         │       └── itemplate_provider.py
+         │       ├── iservice.py
+         │       └── isubprocessor.py
          ├── engine.py
-         ├── gen_readme_bundle.py
          ├── infrastructure/
-         │   ├── cli.py
-         │   ├── cli_bundle.py
+         │   ├── cli/
+         │   │   ├── engine.py
+         │   │   ├── icli.py
+         │   │   ├── __init__.py
+         │   │   └── setup/
+         │   │       ├── bundle.py
+         │   │       ├── dep_validator.py
+         │   │       ├── dependencies.py
+         │   │       ├── factory.py
+         │   │       ├── __init__.py
+         │   │       ├── keys.py
+         │   │       ├── opt_validator.py
+         │   │       ├── options.py
+         │   │       ├── registry.py
+         │   │       └── validator.py
+         │   ├── command/
+         │   │   ├── command.py
+         │   │   ├── gen_readme_command_definition.py
+         │   │   ├── gen_readme_command_executor.py
+         │   │   ├── icommand_definition.py
+         │   │   ├── icommand_executor.py
+         │   │   └── __init__.py
          │   ├── config/
          │   │   ├── gen_readme.cfg
-         │   │   └── gen_readme.logo
-         │   ├── file_writer.py
-         │   ├── gen_readme_command.py
-         │   ├── icli.py
-         │   ├── icli_command.py
+         │   │   ├── gen_readme.logo
+         │   │   ├── scheme.json
+         │   │   └── templates.tgz
          │   ├── __init__.py
-         │   ├── template_provider.py
-         │   └── templates/
-         │       ├── README_AVR.template
-         │       ├── README_C.template
-         │       ├── README_CC.template
-         │       ├── README_JS.template
-         │       ├── README_PL.template
-         │       ├── README_PY.template
-         │       ├── README_RPI.template
-         │       ├── README_SH.template
-         │       ├── README_STM.template
-         │       └── README_VALA.template
+         │   └── subprocessor.py
          ├── __init__.py
-         └── py.typed
+         ├── py.typed
+         └── setup/
+             ├── bundle.py
+             ├── dep_validator.py
+             ├── dependencies.py
+             ├── factory.py
+             ├── __init__.py
+             ├── keys.py
+             ├── opt_validator.py
+             ├── options.py
+             ├── registry.py
+             └── validator.py
 
-     7 directories, 33 files
+     10 directories, 45 files
 
-Usage
------
+✨ Features
+-----------
+
+* Automatically scaffolds README projects (coapthon, libcoap, node_coap).
+* Provides a modular and extensible architecture based on OOP and SOLID principles.
+* Includes command line interface (CLI) support via a command/executor structure.
+* Robust validation of project bundles, dependencies, and options.
+* Comes with configurable templates and JSON schema definitions.
+* High code quality with full type checking and 100% unit test coverage.
+
+📊 Code coverage
+----------------
+
+.. csv-table:: Code coverage
+   :file: coverage_table.csv
+   :widths: 60, 10, 10, 20
+   :header-rows: 1
+
+🛠 Usage
+--------
 
 Install package
 
@@ -139,59 +170,38 @@ Install package
 
     pip3 install gen_readme
 
-Prepare main entry point by downloading `main.py <https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py>`_ or create your own.
+Prepare main entry point by downloading `main.py` or create your own.
 
 .. code-block:: bash
 
-    wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_readme/master/main.py
+    wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_readme/main/main.py
 
-Running tool for creating new distributing py module
+Running tool for creating new README project
 
 .. code-block:: bash
 
-    python3 main.py generate-readme \
-        --type "avr" \
-        --project-name "gen_readme" \
-        --version "1.1.6" \
-        --description "Generate README.md file" \
-        --author-name "Vladimir Roncevic" \
-        --author-url "https://vroncevic.github.io" \
-        --license "MIT" \
-        --repo-url "https://github.com/vroncevic/gen_readme" \
-        --filename "README_AVR.md"
+    python3 main.py create --name myapp --type coapthon --output ./demo/
 
-Copyright and licence
-----------------------
+📚 Docs
+-------
 
-|license: gpl v3| |license: apache 2.0|
+More documentation and info at
 
-.. |license: gpl v3| image:: https://img.shields.io/badge/license-gplv3-blue.svg
-   :target: https://www.gnu.org/licenses/gpl-3.0
+* `gen_readme.readthedocs.io <https://gen-readme.readthedocs.io>`_
+* `www.python.org <https://www.python.org/>`_
 
-.. |license: apache 2.0| image:: https://img.shields.io/badge/license-apache%202.0-blue.svg
-   :target: https://opensource.org/licenses/apache-2.0
+👥 Contributing
+---------------
 
-Copyright (C) 2020 - 2026 by `vroncevic.github.io/gen_readme <https://vroncevic.github.io/gen_readme>`_
+`Contributing to gen_readme <https://github.com/vroncevic/gen_readme/blob/dev/CONTRIBUTING.md>`_
+
+📄 Copyright and licence
+-------------------------
+
+Copyright (C) 2025 - 2026 by `vroncevic.github.io/gen_readme <https://vroncevic.github.io/gen_readme>`_
 
 **gen_readme** is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
 at your option, any later version of Python 3 you may have available.
 
 Lets help and support PSF.
-
-|python software foundation|
-
-.. |python software foundation| image:: https://raw.githubusercontent.com/vroncevic/gen_readme/dev/docs/psf-logo-alpha.png
-   :target: https://www.python.org/psf/
-
-|donate|
-
-.. |donate| image:: https://www.paypalobjects.com/en_us/i/btn/btn_donatecc_lg.gif
-   :target: https://www.python.org/psf/donations/
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 
 python3 main.py generate-readme \
     --type "avr" \
@@ -9,7 +10,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_AVR.md"
+    --filename "README_AVR.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "c" \
@@ -20,7 +22,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_C.md"
+    --filename "README_C.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "cc" \
@@ -31,7 +34,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_CC.md"
+    --filename "README_CC.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "js" \
@@ -42,7 +46,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_JS.md"
+    --filename "README_JS.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "pl" \
@@ -53,7 +58,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_PL.md"
+    --filename "README_PL.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "py" \
@@ -64,7 +70,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_PY.md"
+    --filename "README_PY.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "rpi" \
@@ -75,7 +82,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_RPI.md"
+    --filename "README_RPI.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "sh" \
@@ -86,7 +94,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_SH.md"
+    --filename "README_SH.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "stm" \
@@ -97,7 +106,8 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_STM.md"
+    --filename "README_STM.md" \
+    --output "./demo_readme"
 
 python3 main.py generate-readme \
     --type "vala" \
@@ -108,4 +118,5 @@ python3 main.py generate-readme \
     --author-url "https://vroncevic.github.io" \
     --license "MIT" \
     --repo-url "https://github.com/vroncevic/gen_readme" \
-    --filename "README_VALA.md"
+    --filename "README_VALA.md" \
+    --output "./demo_readme"

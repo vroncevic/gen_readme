@@ -1,0 +1,112 @@
+{
+    "avr": {
+        "source_dir": "avr",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "c": {
+        "source_dir": "c",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "cc": {
+        "source_dir": "cc",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "js": {
+        "source_dir": "js",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "pl": {
+        "source_dir": "pl",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "py": {
+        "source_dir": "py",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "rpi": {
+        "source_dir": "rpi",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "sh": {
+        "source_dir": "sh",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "stm": {
+        "source_dir": "stm",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "vala": {
+        "source_dir": "vala",
+        "path_replacements": {
+            "base": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    }
+}

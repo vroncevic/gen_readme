@@ -2,7 +2,7 @@
 
 '''
 Module
-    main.py
+    dependencies.py
 Copyright
     Copyright (C) 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_readme is free software: you can redistribute it and/or modify it
@@ -16,15 +16,18 @@ Copyright
     You should have received a copy of the GNU General Public License along
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
-    Main entry point for Task Code Generator CLI.
+    GenReadme bundle dependencies for the gen_readme bundle.
 '''
 
 from __future__ import annotations
 
-from sys import exit
+from typing import TypedDict
 
-from gen_readme.engine import GenReadme
-from gen_readme.setup.factory import GenReadmeBundleFactory
+from ats_utilities.base.setup.bundle import BaseBundle
+
+from gen_readme.core.service.iservice import IService
+from gen_readme.core.service.isubprocessor import ISubProcessor
+from gen_readme.infrastructure.cli.icli import ICLI
 
 __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_readme'
@@ -36,23 +39,20 @@ __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
-def main() -> bool:
+class GenReadmeBundleDependencies(TypedDict):
     '''
-        Bootstraps and runs the gen_readme with required adapters.
+        GenReadme bundle dependencies for the gen_readme bundle.
 
-        :return: True if successful, False otherwise.
-        :exceptions: None
+        It defines:
+
+            :attributes:
+                | base - The base bundle with the base components for the gen_readme bundle.
+                | service - The service orchestrating the gen_readme's execution for the gen_readme bundle.
+                | subprocessor - The adapter executing the gen_readme's sub-processes for the gen_readme bundle.
+                | cli - The command-line interface adapter for the gen_readme bundle.
     '''
-    gen_readme: GenReadme = GenReadme(GenReadmeBundleFactory.create_bundle())
 
-    return gen_readme.process()
-
-
-if __name__ == '__main__':
-    '''
-        Entry point for gen_readme execution.
-
-        :exit code: 0 if successful, 1 otherwise.
-        :exceptions: None
-    '''
-    exit(0 if main() else 1)
+    base: BaseBundle
+    service: IService
+    subprocessor: ISubProcessor
+    cli: ICLI
