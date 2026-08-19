@@ -7,9 +7,9 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   gen_readme.application
-   gen_readme.domain
+   gen_readme.core
    gen_readme.infrastructure
+   gen_readme.setup
 
 Submodules
 ----------
@@ -18,7 +18,6 @@ Submodules
    :maxdepth: 4
 
    gen_readme.engine
-   gen_readme.gen_readme_bundle
 
 Module contents
 ---------------
