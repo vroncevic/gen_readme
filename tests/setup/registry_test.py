@@ -72,4 +72,4 @@ class TestGenReadmeBundleRegistry(unittest.TestCase):
             GenReadmeBundleRegistry.create_bundle(None)
 
     def test_get_version(self) -> None:
-        self.assertEqual(GenReadmeBundleRegistry.get_version(), '1.1.7')
+        self.assertEqual(GenReadmeBundleRegistry.get_version(), '1.1.8')
