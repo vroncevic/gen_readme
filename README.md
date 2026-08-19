@@ -38,7 +38,7 @@ Used next development environment
 
 ![debian linux os](https://raw.githubusercontent.com/vroncevic/gen_readme/dev/docs/debtux.png)
 
-[![gen_readme python3 build](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml/badge.svg)](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml)
+[![gen_readme python3 build](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml/badge.svg)](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml) [![gen_readme_interface_checker](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_interface_checker.yml/badge.svg)](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_interface_checker.yml) [![gen_readme_isp_checker](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_isp_checker.yml/badge.svg)](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_isp_checker.yml) [![gen_readme_srp_checker](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_srp_checker.yml/badge.svg)](https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_srp_checker.yml)
 
 Currently there are four ways to install package
 * Install process based on using pip mechanism

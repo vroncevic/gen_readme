@@ -36,10 +36,19 @@ other information that should be provided before the tool is installed.
 🚀 Installation
 ------------------
 
-|gen_readme python3 build|
+|gen_readme python3 build| |gen_readme_interface_checker| |gen_readme_isp_checker| |gen_readme_srp_checker|
 
 .. |gen_readme python3 build| image:: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml/badge.svg
    :target: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_python3_build.yml
+
+.. |gen_readme_interface_checker| image:: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_interface_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_interface_checker.yml
+
+.. |gen_readme_isp_checker| image:: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_isp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_isp_checker.yml
+
+.. |gen_readme_srp_checker| image:: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_srp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_readme/actions/workflows/gen_readme_srp_checker.yml
 
 Navigate to release `page`_ download and extract release archive.
 
