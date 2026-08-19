@@ -253,7 +253,17 @@ wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_readme/main/main
 Running tool for creating new README project
 
 ```bash
-python3 main.py create --name myapp --type coapthon --output ./demo/
+python3 main.py generate-readme \
+    --type "avr" \
+    --project-name "gen_readme" \
+    --version "1.1.8" \
+    --description "Generate README.md file" \
+    --author-name "Vladimir Roncevic" \
+    --author-url "https://vroncevic.github.io" \
+    --license "MIT" \
+    --repo-url "https://github.com/vroncevic/gen_readme" \
+    --filename "README_AVR.md" \
+    --output "./demo_readme"
 ```
 
 ### 📚 Docs
