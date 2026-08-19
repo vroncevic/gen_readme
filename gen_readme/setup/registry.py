@@ -36,7 +36,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.6'
+__version__ = '1.1.7'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -50,6 +50,7 @@ class GenReadmeBundleRegistry:
 
             :methods:
                 | create_bundle - Creates the gen_readme bundle.
+                | get_version - Returns the registry version.
     '''
 
     @classmethod
@@ -79,3 +80,13 @@ class GenReadmeBundleRegistry:
         GenReadmeBundleValidator.validate(bundle)
 
         return bundle
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the registry version.
+
+            :return: The registry version.
+            :exceptions: None.
+        '''
+        return __version__

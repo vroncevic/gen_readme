@@ -23,8 +23,9 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from ats_utilities.validation.check_type import istype
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_value import not_none
+from ats_utilities.validation.check_type import istype
 
 from gen_readme.setup.dependencies import GenReadmeBundleDependencies
 from gen_readme.setup.keys import GenReadmeBundleKeys
@@ -33,7 +34,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.6'
+__version__ = '1.1.7'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -47,6 +48,7 @@ class GenReadmeBundleDependenciesValidator:
 
             :methods:
                 | validate - Validates the gen_readme bundle dependencies.
+                | is_valid - Checks if the gen_readme bundle dependencies is valid.
     '''
 
     @classmethod
@@ -75,3 +77,18 @@ class GenReadmeBundleDependenciesValidator:
 
             not_none(attribute, ctx, msg_attr_name_none)
             istype(attribute, expected_type, ctx, msg_attr_name_istype)
+
+    @classmethod
+    def is_valid(cls, genreadmebundledependencies: GenReadmeBundleDependencies) -> bool:
+        '''
+            Checks if the genreadmebundledependencies is valid.
+
+            :param genreadmebundledependencies: The genreadmebundledependencies to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(genreadmebundledependencies)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False

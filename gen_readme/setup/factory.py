@@ -47,7 +47,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.6'
+__version__ = '1.1.7'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -63,6 +63,7 @@ class GenReadmeBundleFactory:
                 | _info_file - Path to the gen_readme info file.
             :methods:
                 | create_bundle - Creates the gen_readme bundle with optional pre-configured options.
+                | get_version - Returns the factory version.
     '''
 
     _info_file: str = 'gen_readme/infrastructure/config/gen_readme.cfg'
@@ -129,3 +130,13 @@ class GenReadmeBundleFactory:
                 cli=cli
             )
         )
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the factory version.
+
+            :return: The factory version.
+            :exceptions: None.
+        '''
+        return __version__

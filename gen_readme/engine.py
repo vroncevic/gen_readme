@@ -37,7 +37,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_readme'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_readme/blob/dev/LICENSE'
-__version__ = '1.1.6'
+__version__ = '1.1.7'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -84,14 +84,14 @@ class GenReadme(Base):
             self._cli = bundle.cli
 
             # Mark as initialized (all components initialized)
-            self._is_initialized = all([
+            self._is_initialized = all(
                 component.is_initialized() for component in [
                     bundle.base.option_manager,
                     bundle.service,
                     bundle.subprocessor,
                     self._cli
                 ] if component
-            ])
+            )
 
             # Setting up logger for tool engine
             self._logger = self.get_context().logger
@@ -103,10 +103,11 @@ class GenReadme(Base):
         except Exception as exc:
             stdout.write(f'❌ gen_readme unexpected exception: {exc}!\n')
 
-    def process(self) -> bool:
+    def process(self, verbose: bool = False) -> bool:
         '''
             Processes the gen_readme commands.
 
+            :param verbose: Verbose execution flag.
             :return: True if successful, False otherwise.
             :exceptions: None.
         '''
@@ -121,13 +122,11 @@ class GenReadme(Base):
                 if result.get("returncode") != 0:
                     self._logger.write_log(ERROR, f'❌ gen_readme: {result.get("stderr") or "failed!"}')
                     return False
-                else:
-                    self._logger.write_log(INFO, '✅ gen_readme: done!')
-                    self._logger.write_log(INFO, '✅ gen_readme: exiting successfully!')
-                    return True
-            else:
-                self._logger.write_log(ERROR, '❌ gen_readme: engine not initialized!')
-                return False
+                self._logger.write_log(INFO, '✅ gen_readme: done!')
+                self._logger.write_log(INFO, '✅ gen_readme: exiting successfully!')
+                return True
+            self._logger.write_log(ERROR, '❌ gen_readme: engine not initialized!')
+            return False
 
         except (ATSValueError, ATSTypeError) as exc:
             self._logger.write_log(ERROR, f'❌ gen_readme: {exc}!')
